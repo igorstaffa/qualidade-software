@@ -1,0 +1,29 @@
+swagger: "2.0"
+info:
+  description: "API exemplo para Qualidade de Software"
+  version: "1.0.0"
+  title: "API Qualidade de Software"
+host: "localhost:8000"
+basePath: "/"
+tags:
+  - name: "Ping"
+    description: "Métodos de Conferência da API"
+schemes:
+  - "http"
+paths:
+  /:
+    get:
+      tags:
+        - "Ping"
+      summary: "Verifica se o servidor está ok"
+      produces:
+        - "application/json"
+      responses:
+        "200":
+          description: "Servidor está saudável"
+          schema:
+            $ref: "#/definitions/Ping"
+        "500":
+          description: "Servidor não está saudável"
+          schema:
+            $ref: "#/definitions/PingError"
